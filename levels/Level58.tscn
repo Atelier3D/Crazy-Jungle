@@ -1,0 +1,208 @@
+[gd_scene load_steps=12 format=2]
+
+[ext_resource path="res://levels/Level.gd" type="Script" id=1]
+[ext_resource path="res://assets/environment/layers/back.png" type="Texture" id=2]
+[ext_resource path="res://assets/environment/layers/middle.png" type="Texture" id=3]
+[ext_resource path="res://assets/tilesets/tiles_world.tres" type="TileSet" id=4]
+[ext_resource path="res://assets/tilesets/tiles_items.tres" type="TileSet" id=5]
+[ext_resource path="res://assets/tilesets/tiles_spikes.tres" type="TileSet" id=6]
+[ext_resource path="res://player/Player.tscn" type="PackedScene" id=7]
+[ext_resource path="res://ui/HUD.tscn" type="PackedScene" id=8]
+[ext_resource path="res://assets/audio/pickup2.ogg" type="AudioStream" id=9]
+[ext_resource path="res://assets/audio/Grasslands Theme.ogg" type="AudioStream" id=10]
+[ext_resource path="res://items/Door.tscn" type="PackedScene" id=11]
+
+[node name="Level" type="Node2D" index="0"]
+
+script = ExtResource( 1 )
+
+[node name="ParallaxBackground" type="ParallaxBackground" parent="." index="0"]
+
+layer = -1
+offset = Vector2( 0, 0 )
+rotation = 0.0
+scale = Vector2( 1, 1 )
+transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+scroll_offset = Vector2( 0, 0 )
+scroll_base_offset = Vector2( 0, 0 )
+scroll_base_scale = Vector2( 1, 1 )
+scroll_limit_begin = Vector2( 0, 0 )
+scroll_limit_end = Vector2( 0, 0 )
+scroll_ignore_camera_zoom = false
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground" index="0"]
+
+motion_scale = Vector2( 0.2, 1 )
+motion_offset = Vector2( 0, 0 )
+motion_mirroring = Vector2( 576, 0 )
+_sections_unfolded = [ "Motion" ]
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Sprite" type="Sprite" parent="ParallaxBackground/ParallaxLayer" index="0"]
+
+scale = Vector2( 1.5, 1.5 )
+texture = ExtResource( 2 )
+centered = false
+_sections_unfolded = [ "Offset", "Transform" ]
+
+[node name="ParallaxLayer2" type="ParallaxLayer" parent="ParallaxBackground" index="1"]
+
+position = Vector2( -5.57986, 169.798 )
+motion_scale = Vector2( 0.6, 1 )
+motion_offset = Vector2( 0, 0 )
+motion_mirroring = Vector2( 880, 0 )
+_sections_unfolded = [ "Motion" ]
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Sprite" type="Sprite" parent="ParallaxBackground/ParallaxLayer2" index="0"]
+
+texture = ExtResource( 3 )
+centered = false
+region_enabled = true
+region_rect = Rect2( 0, 0, 880, 368 )
+_sections_unfolded = [ "Offset", "Region", "Transform" ]
+
+[node name="World" type="TileMap" parent="." index="1"]
+
+mode = 0
+tile_set = ExtResource( 4 )
+cell_size = Vector2( 16, 16 )
+cell_quadrant_size = 16
+cell_custom_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+cell_half_offset = 2
+cell_tile_origin = 0
+cell_y_sort = false
+cell_clip_uv = false
+collision_use_kinematic = false
+collision_friction = 1.0
+collision_bounce = 0.0
+collision_layer = 1
+collision_mask = 1
+occluder_light_mask = 1
+format = 1
+tile_data = PoolIntArray( 1245201, 0, 0, 1245202, 0, 0, 1245203, 0, 0, 1245204, 0, 0, 1245205, 0, 0, 1245206, 0, 0, 1245207, 0, 0, 1245208, 0, 0, 1245209, 0, 0, 1245210, 0, 0, 1245211, 0, 0, 1245212, 0, 0, 1245213, 0, 0, 1245214, 0, 0, 1245215, 0, 0, 1245216, 0, 0, 1245217, 0, 0, 1245218, 0, 0, 1245233, 0, 0, 1245234, 0, 0, 1245235, 0, 0, 1245236, 0, 0, 1245237, 0, 0, 1310755, 0, 0, 1310756, 0, 0, 1310757, 0, 0, 1310758, 0, 0, 1310759, 0, 0, 1310760, 0, 0, 1310761, 0, 0, 1310769, 0, 0, 1376298, 0, 0, 1376299, 0, 0, 1376300, 0, 0, 1376301, 0, 0, 1376302, 0, 0, 1376303, 0, 0, 1376304, 0, 0 )
+_sections_unfolded = [ "Cell" ]
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Objects" type="TileMap" parent="." index="2"]
+
+mode = 0
+tile_set = ExtResource( 5 )
+cell_size = Vector2( 16, 16 )
+cell_quadrant_size = 16
+cell_custom_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+cell_half_offset = 2
+cell_tile_origin = 0
+cell_y_sort = false
+cell_clip_uv = false
+collision_use_kinematic = false
+collision_friction = 1.0
+collision_bounce = 0.0
+collision_layer = 1
+collision_mask = 1
+occluder_light_mask = 1
+format = 1
+tile_data = PoolIntArray(  )
+_sections_unfolded = [ "Cell" ]
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Pickups" type="TileMap" parent="." index="3"]
+
+mode = 0
+tile_set = ExtResource( 5 )
+cell_size = Vector2( 16, 16 )
+cell_quadrant_size = 16
+cell_custom_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+cell_half_offset = 2
+cell_tile_origin = 0
+cell_y_sort = false
+cell_clip_uv = false
+collision_use_kinematic = false
+collision_friction = 1.0
+collision_bounce = 0.0
+collision_layer = 1
+collision_mask = 1
+occluder_light_mask = 1
+format = 1
+tile_data = PoolIntArray(  )
+_sections_unfolded = [ "Cell" ]
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Danger" type="TileMap" parent="." index="4"]
+
+mode = 0
+tile_set = ExtResource( 6 )
+cell_size = Vector2( 16, 16 )
+cell_quadrant_size = 16
+cell_custom_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+cell_half_offset = 2
+cell_tile_origin = 0
+cell_y_sort = false
+cell_clip_uv = false
+collision_use_kinematic = false
+collision_friction = 1.0
+collision_bounce = 0.0
+collision_layer = 1
+collision_mask = 1
+occluder_light_mask = 1
+format = 1
+tile_data = PoolIntArray(  )
+_sections_unfolded = [ "Cell" ]
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Player" parent="." index="5" instance=ExtResource( 7 )]
+
+visible = false
+life = null
+
+[node name="PlayerSpawn" type="Position2D" parent="." index="6"]
+
+position = Vector2( 344.585, 237.342 )
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." index="7"]
+
+layer = 1
+offset = Vector2( 0, 0 )
+rotation = 0.0
+scale = Vector2( 1, 1 )
+transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+
+[node name="HUD" parent="CanvasLayer" index="0" instance=ExtResource( 8 )]
+
+margin_bottom = 97.0
+
+[node name="PickupSound" type="AudioStreamPlayer" parent="." index="8"]
+
+stream = ExtResource( 9 )
+volume_db = -15.0
+autoplay = false
+mix_target = 0
+bus = "Master"
+
+[node name="Music" type="AudioStreamPlayer" parent="." index="9"]
+
+stream = ExtResource( 10 )
+volume_db = -5.0
+autoplay = true
+mix_target = 0
+bus = "Master"
+
+[node name="Door" parent="." index="10" instance=ExtResource( 11 )]
+
+position = Vector2( 636.427, 300.633 )
+
+[connection signal="body_entered" from="Door" to="." method="_on_Door_body_entered"]
+
+
