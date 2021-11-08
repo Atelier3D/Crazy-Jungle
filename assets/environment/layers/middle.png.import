@@ -3,20 +3,21 @@
 importer="texture"
 type="StreamTexture"
 path="res://.import/middle.png-da76e104f6ef40c8e99146cdbac67732.stex"
+metadata={
+"vram_texture": false
+}
 
 [deps]
 
 source_file="res://assets/environment/layers/middle.png"
-source_md5="97e203facb3c4ed2f3ff1e773a775ce1"
-
 dest_files=[ "res://.import/middle.png-da76e104f6ef40c8e99146cdbac67732.stex" ]
-dest_md5="d4b2b28d0a0fcf1c5bc603cd11fd29fd"
 
 [params]
 
 compress/mode=0
 compress/lossy_quality=0.7
 compress/hdr_mode=0
+compress/bptc_ldr=0
 compress/normal_map=0
 flags/repeat=2
 flags/filter=false
@@ -26,6 +27,7 @@ flags/srgb=2
 process/fix_alpha_border=true
 process/premult_alpha=false
 process/HDR_as_SRGB=false
+process/invert_color=false
 stream=false
 size_limit=0
 detect_3d=true

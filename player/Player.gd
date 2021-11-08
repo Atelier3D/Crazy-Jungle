@@ -25,7 +25,7 @@ func _ready():
 func start(pos):
 	position = pos
 	show()
-	life = 5
+#	life = 5
 	emit_signal('life_changed', life)
 	change_state(IDLE)
 
@@ -60,7 +60,7 @@ func change_state(new_state):
 
 func get_input():
 	if state == HURT:
-    	return
+		return
 	velocity.x = 0
 	var right = Input.is_action_pressed('right')
 	var left = Input.is_action_pressed('left')
@@ -133,7 +133,7 @@ func _physics_process(delta):
 	if state == JUMP and is_on_floor():
 		change_state(IDLE)
 		$Dust.emitting = true
-	if position.y > 5000:
+	if position.y > 1000:
 		change_state(DEAD)
 
 func hurt():

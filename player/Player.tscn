@@ -188,7 +188,7 @@ anim_offset_random = 0.0
 anim_loop = false
 _sections_unfolded = [ "Color", "Emission Shape", "Initial Velocity", "Scale" ]
 
-[node name="Player" type="KinematicBody2D"]
+[node name="Player" type="KinematicBody2D" index="0"]
 
 input_pickable = false
 collision_layer = 2
@@ -256,7 +256,7 @@ drag_margin_bottom = 0.2
 editor_draw_screen = true
 editor_draw_limits = false
 editor_draw_drag_margin = false
-_sections_unfolded = [ "Drag Margin", "Limit", "Smoothing" ]
+_sections_unfolded = [ "Drag Margin", "Limit" ]
 
 [node name="Dust" type="Particles2D" parent="." index="4"]
 
@@ -286,6 +286,7 @@ _sections_unfolded = [ "Drawing", "Process Material", "Time", "Transform" ]
 
 stream = ExtResource( 3 )
 volume_db = -10.0
+pitch_scale = 1.0
 autoplay = false
 mix_target = 0
 bus = "Master"
@@ -294,6 +295,7 @@ bus = "Master"
 
 stream = ExtResource( 4 )
 volume_db = -10.0
+pitch_scale = 1.0
 autoplay = false
 mix_target = 0
 bus = "Master"

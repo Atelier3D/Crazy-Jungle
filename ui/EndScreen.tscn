@@ -1,6 +1,6 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=9 format=2]
 
-[ext_resource path="res://ui/TitleScreen.gd" type="Script" id=1]
+[ext_resource path="res://ui/EndScreen.gd" type="Script" id=1]
 [ext_resource path="res://assets/environment/layers/back.png" type="Texture" id=2]
 [ext_resource path="res://assets/environment/layers/middle.png" type="Texture" id=3]
 [ext_resource path="res://assets/Kenney Thick.ttf" type="DynamicFontData" id=4]
@@ -10,14 +10,13 @@
 size = 64
 font_data = ExtResource( 4 )
 
-[sub_resource type="DynamicFontData" id=2]
-font_path = "res://assets/Kenney Thick.ttf"
+[sub_resource type="DynamicFont" id=2]
+size = 32
+font_data = ExtResource( 4 )
 
-[sub_resource type="DynamicFont" id=3]
-size = 36
-font_data = SubResource( 2 )
-
-[sub_resource type="Animation" id=4]
+[sub_resource type="Animation" id=3]
+resource_name = "anim"
+length = 5.0
 tracks/0/type = "value"
 tracks/0/path = NodePath("Message:visible")
 tracks/0/interp = 1
@@ -54,23 +53,14 @@ tracks/2/keys = {
 "update": 0,
 "values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
 }
-tracks/3/type = "value"
-tracks/3/path = NodePath("Title:rect_position")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/keys = {
-"times": PoolRealArray( 0, 0.5, 1 ),
-"transitions": PoolRealArray( 1, 1, 1 ),
-"update": 0,
-"values": [ Vector2( 0, -200 ), Vector2( 0, 250 ), Vector2( 0, 180 ) ]
-}
 
-[node name="TitleScreen" type="Control"]
+[node name="EndScreen" type="Control"]
 anchor_right = 1.0
 anchor_bottom = 1.0
 script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="TextureRect" type="TextureRect" parent="."]
 anchor_right = 1.0
@@ -90,21 +80,17 @@ stretch_mode = 2
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_top = -420.0
-margin_bottom = -300.0
+margin_top = -328.0
+margin_bottom = -256.0
 custom_fonts/font = SubResource( 1 )
 custom_colors/font_color = Color( 1, 1, 1, 1 )
 custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
 custom_constants/shadow_offset_x = 5
 custom_constants/shadow_offset_y = 5
 custom_constants/shadow_as_outline = 5
-text = "CRAZY JUNGLE"
+text = "Bravo"
 align = 1
 valign = 1
-clip_text = true
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
 [node name="Message" type="Label" parent="."]
 anchor_top = 1.0
@@ -112,19 +98,19 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 margin_top = -97.0
 margin_bottom = -43.0
-custom_fonts/font = SubResource( 3 )
+custom_fonts/font = SubResource( 2 )
 custom_colors/font_color = Color( 1, 1, 1, 1 )
 custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
 custom_constants/shadow_offset_x = 5
 custom_constants/shadow_offset_y = 5
 custom_constants/shadow_as_outline = 5
-text = "Press Space to Play"
+text = "Bien Joue"
 align = 1
 valign = 1
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 autoplay = "anim"
-anims/anim = SubResource( 4 )
+anims/anim = SubResource( 3 )
 
 [node name="Music" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 5 )
